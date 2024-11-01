@@ -1,0 +1,7 @@
+C:\Users\rafae\Documents\LESI\Ano3\Semestre1\POO\ThriftShop\ThriftShop\bin\Debug\ThriftShop.exe.config
+C:\Users\rafae\Documents\LESI\Ano3\Semestre1\POO\ThriftShop\ThriftShop\bin\Debug\ThriftShop.exe
+C:\Users\rafae\Documents\LESI\Ano3\Semestre1\POO\ThriftShop\ThriftShop\bin\Debug\ThriftShop.pdb
+C:\Users\rafae\Documents\LESI\Ano3\Semestre1\POO\ThriftShop\ThriftShop\obj\Debug\ThriftShop.csproj.AssemblyReference.cache
+C:\Users\rafae\Documents\LESI\Ano3\Semestre1\POO\ThriftShop\ThriftShop\obj\Debug\ThriftShop.csproj.CoreCompileInputs.cache
+C:\Users\rafae\Documents\LESI\Ano3\Semestre1\POO\ThriftShop\ThriftShop\obj\Debug\ThriftShop.exe
+C:\Users\rafae\Documents\LESI\Ano3\Semestre1\POO\ThriftShop\ThriftShop\obj\Debug\ThriftShop.pdb

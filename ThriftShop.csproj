@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{2C8CB862-0D40-4D90-96C4-7DDC2D106F01}</ProjectGuid>
+    <ProjectGuid>{3E0B010D-EBF7-4932-AF8C-FE0217F5BE94}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <RootNamespace>ThriftShop</RootNamespace>
     <AssemblyName>ThriftShop</AssemblyName>
@@ -43,12 +43,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Actors\Admin.cs" />
+    <Compile Include="Actors\Beneficiary.cs" />
+    <Compile Include="Actors\Donor.cs" />
+    <Compile Include="Actors\User.cs" />
+    <Compile Include="Actors\Volunteer.cs" />
+    <Compile Include="Donations\DistributedProduct.cs" />
+    <Compile Include="Donations\Distribution.cs" />
+    <Compile Include="Donations\Donation.cs" />
+    <Compile Include="Donations\Need.cs" />
+    <Compile Include="Products\Category.cs" />
+    <Compile Include="Products\Inventory.cs" />
+    <Compile Include="Products\Product.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Users.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

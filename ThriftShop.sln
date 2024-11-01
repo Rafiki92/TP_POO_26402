@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35312.102
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThriftShop", "ThriftShop.csproj", "{2C8CB862-0D40-4D90-96C4-7DDC2D106F01}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThriftShop", "ThriftShop.csproj", "{3E0B010D-EBF7-4932-AF8C-FE0217F5BE94}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{2C8CB862-0D40-4D90-96C4-7DDC2D106F01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2C8CB862-0D40-4D90-96C4-7DDC2D106F01}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2C8CB862-0D40-4D90-96C4-7DDC2D106F01}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2C8CB862-0D40-4D90-96C4-7DDC2D106F01}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3E0B010D-EBF7-4932-AF8C-FE0217F5BE94}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E0B010D-EBF7-4932-AF8C-FE0217F5BE94}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E0B010D-EBF7-4932-AF8C-FE0217F5BE94}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E0B010D-EBF7-4932-AF8C-FE0217F5BE94}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {76877C50-C6F4-45BC-9588-C973DE68750B}
+		SolutionGuid = {B5B54C0B-D94A-4E93-8CF1-084A29EF9FD7}
 	EndGlobalSection
 EndGlobal
