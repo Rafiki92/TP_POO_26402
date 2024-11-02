@@ -12,12 +12,19 @@ namespace ThriftShop.Actors
     /// </summary>
     public class Admin : User
     {
+        #region Attributes
         public string Name { get; set; }
+
+        #endregion
+
+        #region Constructors
 
         public Admin(int userId, string username, string password, string name)
             : base(userId, username, password, UserRole.Admin) 
         {
-            Name = name;
+            this.Name = name;
         }
+
+        #endregion
     }
 }

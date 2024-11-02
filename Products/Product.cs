@@ -15,19 +15,37 @@ namespace ThriftShop.Products
         #region Attributes
         public int ProductId { get; set; }
         public string Name { get; set; }
-        public string Category { get; set; }
         public int Quantity { get; set; }
-        public Donor Donor { get; set; }
+        public Category Category { get; set; }
+
+        private static List<Product> products = new List<Product>();
         #endregion
 
         #region Constructors
-        public Product(int productId, string name, string category, int quantity, Donor donor)
+        public Product(int productId, string name, Category category, int quantity)
         {
-            ProductId = productId;
-            Name = name;
-            Category = category;
-            Quantity = quantity;
-            Donor = donor;
+            this.ProductId = productId;
+            this.Name = name;
+            this.Category = category ?? throw new ArgumentNullException(nameof(category));
+            this.Quantity = quantity;
+        }
+        #endregion
+
+        #region Methods
+        public static void AddProduct(Product product)
+        {
+            products.Add(product);
+        }
+
+        public static void DisplayProducts()
+        {
+            Console.WriteLine("Products:");
+            // Loop through each product in the products list
+            foreach (var product in products)
+            {
+                // Display the product's details
+                Console.WriteLine($"ID: {product.ProductId}, Name: {product.Name}, Quantity: {product.Quantity}, Category: {product.Category.Name}");
+            }
         }
         #endregion
     }

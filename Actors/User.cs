@@ -31,10 +31,10 @@ namespace ThriftShop
         #region Constructors
         public User(int userId, string username, string password, UserRole role)
         {
-            UserId = userId;
-            Username = username;
-            Password = password;
-            Role = role;
+            this.UserId = userId;
+            this.Username = username;
+            this.Password = password;
+            this.Role = role;
         }
         #endregion
 

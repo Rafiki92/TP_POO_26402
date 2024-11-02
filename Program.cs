@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ThriftShop.Actors;
+using ThriftShop.Donation;
 using ThriftShop.Products;
 
 namespace ThriftShop
@@ -15,19 +16,27 @@ namespace ThriftShop
         
         static void Main(string[] args)
         {
-            Product p1 = new Product(1, "Bicycle", "Sports", 1, null);
-            Console.WriteLine($"Product Name: {p1.Name},\n Category: {p1.Category},\n Quantity: {p1.Quantity},\n Donor: {p1.Donor}");
+            Donor donor1 = new Donor(1, "John Doe", "john@example.com", "American");
+            Donor.AddDonor(donor1);
 
-            Volunteer v1 = new Volunteer (1, "Rafiki", "Char1", "Rafael Ferreira", "900", DateTime.Now, 0);
-            Console.WriteLine($"Volunteer Details:\n" +
-                  $"UserId: {v1.UserId}\n" +
-                  $"Username: {v1.Username}\n" +
-                  $"Password: {v1.Password}\n" +
-                  $"Role: {v1.Role}\n" +
-                  $"Name: {v1.Name}\n" +
-                  $"Contact Info: {v1.ContactInfo}\n" +
-                  $"Join Date: {v1.JoinDate.ToShortDateString()}\n" +
-                  $"Hours Worked: {v1.HoursWorked}");
+            // Create a category for products
+            Category clothingCategory = new Category(1, "Clothing", "Various clothing items donated.");
+
+            // Create products
+            Product product1 = new Product(1, "Winter Coat", clothingCategory, 5);
+            Product product2 = new Product(2, "T-shirt", clothingCategory, 10);
+
+            // Create a list of donated products
+            List<Product> donatedProducts = new List<Product> { product1, product2 };
+
+            // Create a donation
+            Donation.AddDonation((Donation)new Donation(1, donor1, donatedProducts, DateTime.Now));
+
+            // Display all donors and donations
+            Donor.DisplayDonors();
+            Donation.DisplayDonations();
+
+
             Console.ReadLine();
         }
     }
