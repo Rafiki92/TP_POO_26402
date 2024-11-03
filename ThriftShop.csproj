@@ -52,8 +52,7 @@
     <Compile Include="Donations\Distribution.cs" />
     <Compile Include="Donations\Donation.cs" />
     <Compile Include="Donations\Need.cs" />
-    <Compile Include="Products\Category.cs" />
-    <Compile Include="Products\Inventory.cs" />
+    <Compile Include="Products\CategoriesEnums.cs" />
     <Compile Include="Products\Product.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

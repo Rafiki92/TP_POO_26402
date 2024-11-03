@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ThriftShop.Actors;
 
-namespace ThriftShop.Donation
+namespace ThriftShop.Donations
 {
     /// <summary>
     /// 
@@ -14,19 +14,25 @@ namespace ThriftShop.Donation
     {
         #region Attributes
         public int NeedId { get; set; }
-        public Beneficiary Beneficiary { get; set; }
         public string Description { get; set; }
         public int PriorityLevel { get; set; }
+        public NeedStatus Status { get; set; }
+
+        public enum NeedStatus
+        {
+            Pending,
+            Fulfilled
+        }
 
         #endregion
 
         #region Constructors
-        public Need(int needId, Beneficiary beneficiary, string description, int priorityLevel)
+        public Need(int needId, string description, int priorityLevel, NeedStatus status = NeedStatus.Pending)
         {
-            this.NeedId = needId;
-            this.Beneficiary = beneficiary;
-            this.Description = description;
-            this.PriorityLevel = priorityLevel;
+            NeedId = needId;
+            Description = description;
+            PriorityLevel = priorityLevel;
+            Status = status;
         }
         #endregion
     }

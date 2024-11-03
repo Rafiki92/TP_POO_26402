@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ThriftShop.Donations;
 
 namespace ThriftShop.Actors
 {
@@ -19,6 +20,9 @@ namespace ThriftShop.Actors
         public bool HasChildren { get; set; }
         public int ChildrenCount { get; set; }
         public int VisitCount { get; set; }
+
+        //List of need for this beneficiary
+        public List<Need> Needs { get; set; } = new List<Need>();
 
         //List to hold all beneficiaries
         private static List<Beneficiary> beneficiaries = new List<Beneficiary>();
@@ -39,21 +43,36 @@ namespace ThriftShop.Actors
         #endregion
 
         #region Methods
-        public static void AddBeneficiary (Beneficiary beneficiary)
+        public static void AddBeneficiary(Beneficiary beneficiary)
         {
             beneficiaries.Add(beneficiary);
         }
 
-        public static void DisplayBeneficiaries() 
-        { 
-        foreach (var beneficiary in beneficiaries)
+        public void AddNeed(Need need)
+        {
+            Needs.Add(need);
+        }
+
+        public static void DisplayBeneficiaries(bool showNeeds = false)
+        {
+            foreach (var beneficiary in beneficiaries)
             {
                 Console.WriteLine($"ID: {beneficiary.BeneficiaryId}, Name: {beneficiary.Name}, Contact: {beneficiary.ContactNumber}, Nationality: {beneficiary.Nationality}, Visits: {beneficiary.VisitCount}");
+
+                // Optionally display needs for each beneficiary
+                if (showNeeds && beneficiary.Needs.Count > 0)  // Use `beneficiary.Needs`
+                {
+                    Console.WriteLine("  Needs:");
+                    foreach (var need in beneficiary.Needs)  // Use `beneficiary.Needs`
+                    {
+                        Console.WriteLine($"    Need ID: {need.NeedId}, Description: {need.Description}, Priority: {need.PriorityLevel}, Status: {need.Status}");
+                    }
+                }
             }
-        }
         }
 
 
         #endregion
     }
+}
 

@@ -16,19 +16,23 @@ namespace ThriftShop.Products
         public int ProductId { get; set; }
         public string Name { get; set; }
         public int Quantity { get; set; }
-        public Category Category { get; set; }
+        
+        public MainCategory Category { get; set; }
+        public Condition Condition { get; set; }
+
 
         private static List<Product> products = new List<Product>();
         #endregion
 
         #region Constructors
-        public Product(int productId, string name, Category category, int quantity)
+        public Product(int productId, string name, MainCategory category, Condition condition, int quantity)
         {
-            this.ProductId = productId;
-            this.Name = name;
-            this.Category = category ?? throw new ArgumentNullException(nameof(category));
+           this.ProductId= productId;
+            this.Name= name;
+            this.Category = category;
+            this.Condition = condition;
             this.Quantity = quantity;
-        }
+        } 
         #endregion
 
         #region Methods
@@ -44,7 +48,7 @@ namespace ThriftShop.Products
             foreach (var product in products)
             {
                 // Display the product's details
-                Console.WriteLine($"ID: {product.ProductId}, Name: {product.Name}, Quantity: {product.Quantity}, Category: {product.Category.Name}");
+                Console.WriteLine($"ID: {product.ProductId}, Name: {product.Name}, Quantity: {product.Quantity}, Category: {product.Category}, Condition: {product.Condition}");
             }
         }
         #endregion

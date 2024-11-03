@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ThriftShop.Products;
 
-namespace ThriftShop.Donation
+namespace ThriftShop.Donations
 {
     /// <summary>
     /// 
