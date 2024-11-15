@@ -1,37 +1,42 @@
 ﻿using System;
 using System.Collections.Generic;
-using ThriftShop.Actors;
-using ThriftShop.Donations;
-using ThriftShop.Products;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using ThriftShopApp.Processes;
+using ThriftShopApp.Registers;
+using ThriftShopApp.Users;
+using ThriftShopApp.Clients;
+using ThriftShopApp.Logins;
+using ThriftShopApp.Products;
+using ThriftShopApp.Timetables;
 
-namespace ThriftShop
+namespace ThriftShopApp
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            // Step 1: Create some products with valid categories and conditions
-            Beneficiary beneficiary1 = new Beneficiary(1, "Alice Johnson", "555-1234", "American", true, 2);
-            Beneficiary beneficiary2 = new Beneficiary(2, "John Smith", "555-5678", "British", false, 0);
+            Volunteer volunteer1 = new Volunteer(1, "Alice Brown", DateTime.Now.AddYears(-2), DateTime.Now, 123456789, "123 Main St", "alice", "password1", 120.0f);
+            Volunteer volunteer2 = new Volunteer(2, "Bob Smith", DateTime.Now.AddYears(-1), DateTime.Now, 987654321, "456 Oak St", "bob", "password2", 150.0f);
 
-            Beneficiary.AddBeneficiary(beneficiary1);
-            Beneficiary.AddBeneficiary(beneficiary2);
+            // Create some timetable instances
+            Timetable timetable1 = new Timetable(1, DateTime.Now, DateTime.Now.AddHours(2), "Morning Shift", 4.0f);
+            Timetable timetable2 = new Timetable(2, DateTime.Now.AddDays(1), DateTime.Now.AddHours(3), "Evening Shift", 3.5f);
 
-            // Step 2: Create needs and associate with beneficiaries
-            Need need1 = new Need(1, "Winter clothes for children", 2, Need.NeedStatus.Pending);
-            Need need2 = new Need(2, "School supplies", 1, Need.NeedStatus.Pending);
-            Need need3 = new Need(3, "Furniture for new apartment", 3, Need.NeedStatus.Pending);
+            // Create and add timetable registrations
+            TimetableReg reg1 = new TimetableReg(1, volunteer1, timetable1);
+            TimetableReg reg2 = new TimetableReg(2, volunteer2, timetable2);
 
-            // Add needs to beneficiaries
-            beneficiary1.Needs.Add(need1);
-            beneficiary1.Needs.Add(need2);
-            beneficiary2.Needs.Add(need3);
+            // Display all timetable registrations
+            TimetableReg.DisplayAllTimetableRegistrations();
 
-            // Step 3: Display all beneficiaries and their needs
-            Console.WriteLine("Displaying beneficiaries and their needs:");
-            Beneficiary.DisplayBeneficiaries(showNeeds: true);
+            // Display registrations for a specific volunteer
+            TimetableReg.DisplayRegistrationsByVolunteer(volunteer1);
 
-            Console.ReadLine(); // Pause the console to view output
+            // Pause the console to view output
+            Console.ReadLine();
         }
+
     }
-}
+    }
