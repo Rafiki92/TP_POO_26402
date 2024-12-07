@@ -9,7 +9,7 @@ using ThriftShopApp.Users;
 
 namespace ThriftShopApp.Registers
 {/// <summary>
- /// Represents the register of a Need Product, from a User.
+ /// Represents the register of a Need Product, from a Beneficiary.
  /// </summary>
     public class NeedProductReg
         {
@@ -17,7 +17,7 @@ namespace ThriftShopApp.Registers
             protected int npid;
             protected Need need;
             protected Product product;
-            protected User user;
+            protected Volunteer volunteer;
             protected int quantityRequested;
             protected bool isFulfilled;
         #endregion
@@ -40,10 +40,10 @@ namespace ThriftShopApp.Registers
             set { product = value; }
         }
 
-        public User User
+        public Volunteer Volunteer
         {
-            get { return user; }
-            set { user = value; }
+            get { return volunteer; }
+            set { volunteer = value; }
         }
 
         public int QuantityRequested
@@ -60,12 +60,12 @@ namespace ThriftShopApp.Registers
         #endregion
 
         #region Constructors
-        public NeedProductReg(int npid, Need need, Product product, User user, int quantityRequested)
+        public NeedProductReg(int npid, Need need, Product product, Volunteer volunteer, int quantityRequested)
             {
                 this.NPID = npid;
                 this.Need = need;
                 this.Product = product;
-                this.user = user;
+                this.Volunteer = volunteer;
                 this.QuantityRequested = quantityRequested;
             }
             #endregion

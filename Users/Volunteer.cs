@@ -15,8 +15,6 @@ namespace ThriftShopApp.Users
             #region Attributes
             private float volunteerHours;
             
-
-            private static List<Volunteer> volunteers = new List<Volunteer>();
             #endregion
 
             #region Properties
@@ -36,22 +34,20 @@ namespace ThriftShopApp.Users
         #endregion
 
         #region Methods
-        public static void AddVolunteer(Volunteer volunteer)
+        public override string GetUsername()
         {
-            if (volunteer != null)
-            {
-                volunteers.Add(volunteer);
-                Console.WriteLine($"Volunteer {volunteer.Name} added successfully.");
-            }
+            return $"[Volunteer] {base.GetUsername()}";
         }
 
-        public static void DisplayVolunteers()
+        public override string GetPassword()
         {
-            foreach (var volunteer in volunteers)
-            {
-                Console.WriteLine($"ID: {volunteer.UserId}, Name: {volunteer.Name}, Contact Number: {volunteer.ContactNumber}, Start Date: {volunteer.StartDate.ToShortDateString()}, End Date: {(volunteer.EndDate.HasValue ? volunteer.EndDate.Value.ToShortDateString() : "N/A")}, Hours Worked: {volunteer.VolunteerHours}");
-            }
+            return $"[Volunteer Password] {base.GetPassword()}";
         }
-#endregion
+
+        public override string GetName()
+        {
+            return $"Volunteer: {base.GetName()}";
+        }
+        #endregion
     }
     }

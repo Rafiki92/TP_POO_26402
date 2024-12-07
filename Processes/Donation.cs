@@ -21,8 +21,7 @@ namespace ThriftShopApp.Processes
         private string notes;
         private DonationStatus status;
         private Donor donor;
-        private User registeredBy;
-        private List<DonationProductReg> productDonations = new List<DonationProductReg>();
+        private Volunteer registeredBy;
 
         public enum DonationStatus
         {
@@ -64,7 +63,7 @@ namespace ThriftShopApp.Processes
             set { donor = value; }
         }
 
-        public User RegisteredBy
+        public Volunteer RegisteredBy
         {
             get { return registeredBy; }
             set { registeredBy = value; }
@@ -74,7 +73,7 @@ namespace ThriftShopApp.Processes
         #endregion
 
         #region Constructors
-        public Donation(int donationID, DateTime donationDate, Donor donor, User registeredBy, string notes = "")
+        public Donation(int donationID, DateTime donationDate, Donor donor, Volunteer registeredBy, string notes = "")
         {
             this.DonationID = donationID;
             this.DonationDate = donationDate;
@@ -86,33 +85,16 @@ namespace ThriftShopApp.Processes
         #endregion
 
         #region Methods
-        public void AddProductDonation(int dpid, Product product, int quantity)
-        {
-            if (product == null)
-                throw new ArgumentNullException(nameof(product));
-
-            // Create a new DonationProductReg with the provided dpid
-            var donationReg = new DonationProductReg(dpid, this, product, registeredBy, quantity);
-            productDonations.Add(donationReg);
-
-            // Update product availability
-            product.Quantity += quantity; // Ensure the `set` accessor in `Product` is public
-            Console.WriteLine($"Product {product.Name} (Qty: {quantity}) added to Donation ID {DonationID}. New quantity available: {product.Quantity}");
-        }
-
-        public void DisplayDonationDetails()
-        {
-            Console.WriteLine($"\nDonation ID: {DonationID}, Donor: {Donor.Name}, Registered by: {RegisteredBy.GetName()}, Date: {DonationDate.ToShortDateString()}, Status: {Status}");
-            foreach (var reg in productDonations)
-            {
-                Console.WriteLine(reg.ToString());
-            }
-        }
-
         public void UpdateStatus(DonationStatus newStatus)
         {
             this.Status = newStatus;
         }
+
+        public override string ToString()
+        {
+            return $"Donation ID: {DonationID}, Donor: {Donor.Name}, Registered by: {RegisteredBy.GetName()}, Date: {DonationDate.ToShortDateString()}, Status: {Status}, Notes: {Notes}";
+        }
+
         #endregion
     }
 }

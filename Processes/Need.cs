@@ -23,8 +23,8 @@ namespace ThriftShopApp.Processes
         private DateTime date;
         private NeedStatus status;
         private Beneficiary beneficiary;
-        private User registeredBy;
-        private List<NeedProductReg> productRequests = new List<NeedProductReg>();
+        private Volunteer registeredBy;
+
         #endregion
 
         #region Properties
@@ -70,7 +70,7 @@ namespace ThriftShopApp.Processes
             set { beneficiary = value; }
         }
 
-        public User RegisteredBy
+        public Volunteer RegisteredBy
         {
             get { return registeredBy; }
             set { registeredBy = value; }
@@ -85,7 +85,7 @@ namespace ThriftShopApp.Processes
         #endregion
 
         #region Constructors
-        public Need(int needID, string name, string category, string description, DateTime date, NeedStatus status = NeedStatus.Pending, Beneficiary beneficiary = null, User registeredBy = null)
+        public Need(int needID, string name, string category, string description, DateTime date, NeedStatus status = NeedStatus.Pending, Beneficiary beneficiary = null, Volunteer registeredBy = null)
         {
             this.NeedID = needID;
             this.Name = name;
@@ -99,41 +99,14 @@ namespace ThriftShopApp.Processes
         #endregion
 
         #region Methods
-        public void AddProductRequest(int npid, Product product, int quantity)
-        {
-            if (product == null)
-                throw new ArgumentNullException(nameof(product));
-
-            // Create a new NeedProductReg with an ID (npid)
-            var request = new NeedProductReg(npid, this, product, registeredBy, quantity);
-            productRequests.Add(request);
-
-            // Check and update product availability
-            if (product.Quantity >= quantity)
-            {
-                product.Quantity -= quantity; // Ensure the `set` accessor in `Product` is public
-                Console.WriteLine($"Product {product.Name} (Qty: {quantity}) reserved for Need ID {NeedID}. New quantity available: {product.Quantity}");
-            }
-            else
-            {
-                Console.WriteLine($"Product {product.Name} cannot fulfill the requested quantity. Available: {product.Quantity}");
-            }
-        }
-
-        public void DisplayNeedDetails()
-        {
-            Console.WriteLine($"Need ID: {NeedID}, Description: {Description}, Date: {Date.ToShortDateString()}, Status: {Status}");
-            Console.WriteLine($"Beneficiary: {Beneficiary?.Name ?? "N/A"}, Registered By: {RegisteredBy?.GetName() ?? "N/A"}");
-            Console.WriteLine("Product Requests:");
-            foreach (var reg in productRequests)
-            {
-                Console.WriteLine(reg);
-            }
-        }
-
         public void UpdateStatus(NeedStatus newStatus)
         {
             this.Status = newStatus;
+        }
+
+        public override string ToString()
+        {
+            return $"Need ID: {NeedID}, Name: {Name}, Category: {Category}, Description: {Description}, Date: {Date.ToShortDateString()}, Status: {Status}, Beneficiary: {Beneficiary?.Name ?? "N/A"}, Registered By: {RegisteredBy?.GetName() ?? "N/A"}";
         }
         #endregion
     }

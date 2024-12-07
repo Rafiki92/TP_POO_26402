@@ -9,7 +9,7 @@ using ThriftShopApp.Users;
 
 namespace ThriftShopApp.Registers
 {/// <summary>
- /// Represents the register of a Donation Product, from a User.
+ /// Represents the register of a Donation Product, from a Donor.
  /// </summary>
     public class DonationProductReg
     {
@@ -17,7 +17,7 @@ namespace ThriftShopApp.Registers
         protected int dpid;
         protected Donation donation;
         protected Product product;
-        protected User user;
+        protected Volunteer volunteer;
         protected int quantityDonated;
         #endregion
 
@@ -39,10 +39,10 @@ namespace ThriftShopApp.Registers
             set { product = value; }
         }
 
-        public User User
+        public Volunteer Volunteer
         {
-            get { return user; }
-            set { user = value; }
+            get { return volunteer; }
+            set { volunteer = value; }
         }
 
         public int QuantityDonated
@@ -53,12 +53,12 @@ namespace ThriftShopApp.Registers
         #endregion
 
         #region Constructors
-        public DonationProductReg(int dpid, Donation donation, Product product, User user, int quantityDonated)
+        public DonationProductReg(int dpid, Donation donation, Product product, Volunteer volunteer, int quantityDonated)
         {
             this.DPID = dpid;
             this.Donation = donation;
             this.Product = product;
-            this.user = user;
+            this.Volunteer = volunteer;
             this.QuantityDonated = quantityDonated;
         }
         #endregion

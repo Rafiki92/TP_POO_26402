@@ -15,11 +15,9 @@ namespace ThriftShopApp.Timetables
         #region Attributes
         private int timetableID;
         private DateTime date;
-        private DateTime timeSlot; 
+        private string timeSlot; 
         private string function;
         private float hours;
-        
-        private static List<Timetable> timetables = new List<Timetable>();
         #endregion
 
         #region Properties
@@ -35,7 +33,7 @@ namespace ThriftShopApp.Timetables
             set { date = value; }
         }
 
-        public DateTime TimeSlot
+        public string TimeSlot
         {
             get { return timeSlot; }
             set { timeSlot = value; }
@@ -52,46 +50,24 @@ namespace ThriftShopApp.Timetables
             get { return hours; }
             set { hours = value; }
         }
-
-        public static List<Timetable> Timetables => timetables;
         #endregion
 
         #region Constructors
 
-        public Timetable(int timetableID, DateTime date, DateTime timeSlot, string function, float hours)
+        public Timetable(int timetableID, DateTime date, string timeSlot, string function, float hours)
         {
             this.TimetableID = timetableID;
             this.Date = date;
             this.TimeSlot = timeSlot;
             this.Function = function;
             this.Hours = hours;
-
-            timetables.Add(this);
         }
         #endregion
 
         #region Methods
         public void DisplayTimetableDetails()
         {
-            Console.WriteLine($"Timetable ID: {TimetableID}, Date: {Date.ToShortDateString()}, Time Slot: {TimeSlot.ToShortTimeString()}, Function: {Function}, Hours: {Hours}");
-        }
-
-        public static void DisplayAllTimetables()
-        {
-            Console.WriteLine("\nList of All Timetables:");
-            foreach (var timetable in timetables)
-            {
-                timetable.DisplayTimetableDetails();
-                Console.WriteLine();
-            }
-        }
-
-        public static void AddTimetable(Timetable timetable)
-        {
-            if (timetable == null)
-                throw new ArgumentNullException(nameof(timetable));
-            timetables.Add(timetable);
-            Console.WriteLine($"Timetable with ID {timetable.TimetableID} added successfully.");
+            Console.WriteLine($"ID: {TimetableID}, Date: {Date.ToShortDateString()}, Time Slot: {TimeSlot}, Function: {Function}, Hours: {Hours}");
         }
         #endregion
 

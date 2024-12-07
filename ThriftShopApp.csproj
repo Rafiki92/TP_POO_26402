@@ -43,22 +43,34 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Clients\Beneficiaries.cs" />
     <Compile Include="Clients\Beneficiary.cs" />
     <Compile Include="Clients\Donor.cs" />
+    <Compile Include="Clients\Donors.cs" />
     <Compile Include="Logins\Login.cs" />
     <Compile Include="Processes\Donation.cs" />
+    <Compile Include="Processes\Donations.cs" />
     <Compile Include="Processes\Need.cs" />
+    <Compile Include="Processes\Needs.cs" />
     <Compile Include="Products\Product.cs" />
+    <Compile Include="Products\Products.cs" />
     <Compile Include="Registers\DonationProductReg.cs" />
+    <Compile Include="Registers\DonationProductRegs.cs" />
     <Compile Include="Registers\NeedProductReg.cs" />
+    <Compile Include="Registers\NeedProductRegs.cs" />
     <Compile Include="Registers\TimetableReg.cs" />
+    <Compile Include="Registers\TimetableRegs.cs" />
     <Compile Include="Registers\VisitReg.cs" />
+    <Compile Include="Registers\VisitRegs.cs" />
     <Compile Include="Timetables\Timetable.cs" />
+    <Compile Include="Timetables\Timetables.cs" />
     <Compile Include="Users\Admin.cs" />
+    <Compile Include="Users\Admins.cs" />
     <Compile Include="Users\User.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Users\Volunteer.cs" />
+    <Compile Include="Users\Volunteers.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

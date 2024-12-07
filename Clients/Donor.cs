@@ -19,9 +19,6 @@ namespace ThriftShopApp.Clients
         private DateTime startDate;
         private DateTime? endDate;
 
-
-        // List to hold all donors
-        private static List<Donor> donors = new List<Donor>();
         #endregion
 
         #region Properties
@@ -57,7 +54,7 @@ namespace ThriftShopApp.Clients
         #endregion
 
         #region Constructors
-        public Donor(int donorID, string name, int contactNumber, DateTime startDate, DateTime? endDate, Donation donation = null)
+        public Donor(int donorID, string name, int contactNumber, DateTime startDate, DateTime? endDate)
         {
             this.DonorID = donorID;
             this.Name = name;
@@ -69,18 +66,13 @@ namespace ThriftShopApp.Clients
         #endregion
 
         #region Methods
-        public static void AddDonor(Donor donor)
+        /// <summary>
+        /// Determines if the donor is currently active.
+        /// </summary>
+        /// <returns>True if active; otherwise, false.</returns>
+        public bool IsActive()
         {
-            donors.Add(donor);
-        }
-
-        public static void DisplayDonors()
-        {
-            Console.WriteLine("Donors:");
-            foreach (var donor in donors)
-            {
-                Console.WriteLine($"ID: {donor.DonorID}, Name: {donor.Name}, Contact: {donor.ContactNumber}, Start Date: {donor.StartDate.ToShortDateString()}, End Date: {(donor.EndDate.HasValue ? donor.EndDate.Value.ToShortDateString() : "N/A")}");
-            }
+            return !EndDate.HasValue || EndDate.Value > DateTime.Now;
         }
         #endregion
     }

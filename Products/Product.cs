@@ -19,8 +19,6 @@ namespace ThriftShopApp.Products
         private string description;
         private int quantity;
         private string status;
-
-        private static List<Product> products = new List<Product>();
         #endregion
 
         #region Properties
@@ -63,7 +61,7 @@ namespace ThriftShopApp.Products
         #endregion
 
         #region Constructors
-        public Product(int productID, string name, string category, string description, int quantityAvailable, string status)
+        public Product(int productID, string name, string category, string description, int quantity, string status)
         {
             this.ProductID = productID;
             this.Name = name;
@@ -71,8 +69,6 @@ namespace ThriftShopApp.Products
             this.Description = description;
             this.Quantity = quantity;
             this.Status = status;
-            
-            products.Add(this);
         }
         #endregion
 
@@ -82,23 +78,6 @@ namespace ThriftShopApp.Products
             Console.WriteLine($"Product ID: {ProductID}, Name: {Name}, Category: {Category}, Description: {Description}, Quantity: {Quantity}, Status: {Status}");
         }
 
-        public static void DisplayAllProducts()
-        {
-            Console.WriteLine("\nList of All Products:");
-            foreach (var product in products)
-            {
-                product.DisplayProductDetails();
-                Console.WriteLine();
-            }
-        }
-
-        public static void AddProduct(Product product)
-        {
-            if (product == null)
-                throw new ArgumentNullException(nameof(product));
-            products.Add(product);
-            Console.WriteLine($"Product '{product.Name}' added successfully.");
-        }
         #endregion
     }
 }

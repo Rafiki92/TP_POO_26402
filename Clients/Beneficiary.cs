@@ -25,10 +25,7 @@ namespace ThriftShopApp.Clients
         private string nationality;
         private DateTime startDate;
         private DateTime? endDate;
-        
 
-        // List to hold all beneficiaries
-        private static List<Beneficiary> beneficiaries = new List<Beneficiary>();
         #endregion
 
         #region Properties
@@ -108,24 +105,16 @@ namespace ThriftShopApp.Clients
             this.Nationality = nationality;
             this.StartDate = startDate;
             this.EndDate = endDate;
-            
+
         }
         #endregion
 
         #region Methods
-        public static void AddBeneficiary(Beneficiary beneficiary)
-        {
-            beneficiaries.Add(beneficiary);
-        }
 
-        public static void DisplayBeneficiaries()
+        public bool IsActive()
         {
-            Console.WriteLine($"Total Number of Beneficiaries: {beneficiaries.Count}");
-            foreach (var beneficiary in beneficiaries)
-            {
-                Console.WriteLine($"ID: {beneficiary.BenID}, Name: {beneficiary.Name}, Contact: {beneficiary.PhoneNumber}, Nationality: {beneficiary.Nationality}");
-            }
+            return !EndDate.HasValue || (EndDate.HasValue && EndDate.Value > DateTime.Now);
         }
-    }
         #endregion
     }
+}

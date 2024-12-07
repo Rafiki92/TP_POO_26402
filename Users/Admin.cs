@@ -14,8 +14,6 @@ namespace ThriftShopApp.Users
     {
         #region Attributes
         private string department;
-
-        private static List<Admin> admin = new List<Admin>();
         #endregion
 
         #region Properties
@@ -35,5 +33,22 @@ namespace ThriftShopApp.Users
             }
             #endregion
         }
+
+        #region Methods
+            public override string GetUsername()
+        {
+            return $"[Admin] {base.GetUsername()}";
+        }
+
+        public override string GetPassword()
+        {
+            return $"[Admin Password] {base.GetPassword()}";
+        }
+
+        public override string GetName()
+        {
+            return $"Admin: {base.GetName()}";
+        }
+        #endregion
     }
 }
