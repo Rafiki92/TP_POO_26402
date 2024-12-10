@@ -35,6 +35,8 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -43,37 +45,110 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Clients\Beneficiaries.cs" />
-    <Compile Include="Clients\Beneficiary.cs" />
-    <Compile Include="Clients\Donor.cs" />
-    <Compile Include="Clients\Donors.cs" />
-    <Compile Include="Logins\Login.cs" />
-    <Compile Include="Processes\Donation.cs" />
-    <Compile Include="Processes\Donations.cs" />
-    <Compile Include="Processes\Need.cs" />
-    <Compile Include="Processes\Needs.cs" />
-    <Compile Include="Products\Product.cs" />
-    <Compile Include="Products\Products.cs" />
-    <Compile Include="Registers\DonationProductReg.cs" />
-    <Compile Include="Registers\DonationProductRegs.cs" />
-    <Compile Include="Registers\NeedProductReg.cs" />
-    <Compile Include="Registers\NeedProductRegs.cs" />
-    <Compile Include="Registers\TimetableReg.cs" />
-    <Compile Include="Registers\TimetableRegs.cs" />
-    <Compile Include="Registers\VisitReg.cs" />
-    <Compile Include="Registers\VisitRegs.cs" />
-    <Compile Include="Timetables\Timetable.cs" />
-    <Compile Include="Timetables\Timetables.cs" />
-    <Compile Include="Users\Admin.cs" />
-    <Compile Include="Users\Admins.cs" />
-    <Compile Include="Users\User.cs" />
+    <Compile Include="Controllers\AuthController.cs" />
+    <Compile Include="Controllers\BeneficiaryController.cs" />
+    <Compile Include="Controllers\DonorController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Services\Beneficiaries.cs" />
+    <Compile Include="Models\Beneficiary.cs" />
+    <Compile Include="Models\Donor.cs" />
+    <Compile Include="Services\Donors.cs" />
+    <Compile Include="Services\LoginService.cs" />
+    <Compile Include="Models\Donation.cs" />
+    <Compile Include="Services\Donations.cs" />
+    <Compile Include="Models\Need.cs" />
+    <Compile Include="Services\Needs.cs" />
+    <Compile Include="Models\Product.cs" />
+    <Compile Include="Services\Products.cs" />
+    <Compile Include="Models\DonationProductReg.cs" />
+    <Compile Include="Services\DonationProductRegs.cs" />
+    <Compile Include="Models\NeedProductReg.cs" />
+    <Compile Include="Services\NeedProductRegs.cs" />
+    <Compile Include="Models\TimetableReg.cs" />
+    <Compile Include="Services\TimetableRegs.cs" />
+    <Compile Include="Models\VisitReg.cs" />
+    <Compile Include="Services\UserService.cs" />
+    <Compile Include="Services\VisitRegs.cs" />
+    <Compile Include="Models\Timetable.cs" />
+    <Compile Include="Services\Timetables.cs" />
+    <Compile Include="Models\Admin.cs" />
+    <Compile Include="Services\Admins.cs" />
+    <Compile Include="Models\User.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Users\Volunteer.cs" />
-    <Compile Include="Users\Volunteers.cs" />
+    <Compile Include="Models\Volunteer.cs" />
+    <Compile Include="Services\Volunteers.cs" />
+    <Compile Include="Views\AddBeneficiaryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\AddBeneficiaryForm.Designer.cs">
+      <DependentUpon>AddBeneficiaryForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AddDonorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\AddDonorForm.Designer.cs">
+      <DependentUpon>AddDonorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\BeneficiaryListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\BeneficiaryListForm.Designer.cs">
+      <DependentUpon>BeneficiaryListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ProductListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ProductListForm.Designer.cs">
+      <DependentUpon>ProductListForm.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\AddBeneficiaryForm.resx">
+      <DependentUpon>AddBeneficiaryForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\AddDonorForm.resx">
+      <DependentUpon>AddDonorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\BeneficiaryListForm.resx">
+      <DependentUpon>BeneficiaryListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\MainForm.aa-DJ.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ProductListForm.resx">
+      <DependentUpon>ProductListForm.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
