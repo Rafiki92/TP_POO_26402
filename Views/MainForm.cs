@@ -9,17 +9,27 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ThriftShopApp.Controllers;
 using ThriftShopApp.Models;
-using ThriftShopApp.Services;
+using ThriftShopApp.Managers;
 
 namespace ThriftShopApp.Views
 {
+    /// <summary>
+    /// Main application form that serves as the central navigation hub for the thrift shop application.
+    /// </summary>
     public partial class MainForm : Form
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MainForm"/> class.
+        /// </summary>
         public MainForm()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Handles the ItemClicked event for the menu strip.
+        /// Currently unused but available for future customization.
+        /// </summary>
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
 
@@ -37,6 +47,10 @@ namespace ThriftShopApp.Views
 
         }
 
+        /// <summary>
+        /// Handles the Click event for the "Add New Beneficiary" menu item.
+        /// Opens the AddBeneficiaryForm for adding a new beneficiary.
+        /// </summary>
         private void addNewBeneficiaryMenuItem_Click_1(object sender, EventArgs e)
         {
             var addBeneficiaryForm = new AddBeneficiaryForm(new BeneficiaryController(new Beneficiaries()));
@@ -44,6 +58,10 @@ namespace ThriftShopApp.Views
 
         }
 
+        /// <summary>
+        /// Handles the Click event for the "Add New Beneficiary" menu item.
+        /// Opens the AddBeneficiaryForm for adding a new beneficiary.
+        /// </summary>
         private void produtosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var productsService = new Products();
@@ -51,6 +69,10 @@ namespace ThriftShopApp.Views
             productListForm.ShowDialog();
         }
 
+        /// <summary>
+        /// Handles the Click event for the "Add New Beneficiary" menu item.
+        /// Opens the AddBeneficiaryForm for adding a new beneficiary.
+        /// </summary>
         private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var confirmResult = MessageBox.Show(
@@ -66,6 +88,10 @@ namespace ThriftShopApp.Views
             }
         }
 
+        /// <summary>
+        /// Handles the Click event for the "Add New Beneficiary" menu item.
+        /// Opens the AddBeneficiaryForm for adding a new beneficiary.
+        /// </summary>
         private void verBeneficiáriosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var beneficiariesService = new Beneficiaries();
@@ -76,6 +102,10 @@ namespace ThriftShopApp.Views
             beneficiaryListForm.ShowDialog(); // Opens the form modally
         }
 
+        /// <summary>
+        /// Handles the Click event for the "Add New Beneficiary" menu item.
+        /// Opens the AddBeneficiaryForm for adding a new beneficiary.
+        /// </summary>
         private void adicionarNovoDoadorToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // Create an instance of the Donors service and the DonorController

@@ -9,20 +9,33 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ThriftShopApp.Controllers;
 using ThriftShopApp.Models;
-using ThriftShopApp.Services;
+using ThriftShopApp.Managers;
 
 
 namespace ThriftShopApp.Views
 {
+    /// <summary>
+    /// Login form for authenticating users in the thrift shop application.
+    /// </summary>
     public partial class LoginForm : Form
     {
+        // Reference to the AuthController for handling login logic.
         private readonly AuthController authController;
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="LoginForm"/> class.
+        /// </summary>
+        /// <param name="authController">The controller for managing authentication logic.</param>
         public LoginForm(AuthController authController)
         {
             InitializeComponent();
             this.authController = authController;
         }
 
+        /// <summary>
+        /// Handles the Click event for the Login button.
+        /// Authenticates the user and navigates to the main application form if successful.
+        /// </summary>
         private void Login_Click(object sender, EventArgs e)
         {
             string username = txtUsername.Text.Trim();
@@ -58,7 +71,11 @@ namespace ThriftShopApp.Views
             }
         }
 
-            private void Exit_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Handles the Click event for the Exit button.
+        /// Confirms the user's intent and exits the application if confirmed.
+        /// </summary>
+        private void Exit_Click(object sender, EventArgs e)
             {
                 // Confirm before exiting the application
                 var confirmResult = MessageBox.Show(
