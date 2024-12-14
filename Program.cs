@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ThriftShopApp.Models;
-using ThriftShopApp.Services;
+using ThriftShopApp.Managers;
 using ThriftShopApp.Controllers;
 using ThriftShopApp.Views;
 using System.Windows.Forms;
