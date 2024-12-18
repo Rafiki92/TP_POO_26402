@@ -1,0 +1,35 @@
+name: CI Pipeline
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  build-and-test:
+    runs-on: windows-latest
+
+    steps:
+      # Step 1: Checkout the code
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Step 2: Set up MSBuild
+      - name: Setup MSBuild
+        uses: microsoft/setup-msbuild@v1
+
+      # Step 3: Restore dependencies
+      - name: Restore dependencies
+        run: nuget restore ThriftShopApp.sln
+
+      # Step 4: Build the solution
+      - name: Build the solution
+        run: msbuild ThriftShopApp.sln /p:Configuration=Release
+
+      # Step 5: Run tests
+      - name: Run tests
+        run: |
+          vstest.console.exe ThriftShopApp.Tests\bin\Release\ThriftShopApp.Tests.dll
