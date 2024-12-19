@@ -45,6 +45,8 @@ namespace ThriftShopApp.Managers
         /// </summary>
         /// <returns>A list of all beneficiaries.</returns>
         List<Beneficiary> GetAll();
+
+        List<Beneficiary> ImportFromCsv(string filePath);
     }
 }
 

@@ -32,6 +32,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.beneficiaryGridView = new System.Windows.Forms.DataGridView();
             this.btnRefresh = new System.Windows.Forms.Button();
+            this.ImportBeneficiaryData = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.beneficiaryGridView)).BeginInit();
             this.SuspendLayout();
@@ -60,7 +61,7 @@
             // 
             // btnRefresh
             // 
-            this.btnRefresh.Location = new System.Drawing.Point(557, 498);
+            this.btnRefresh.Location = new System.Drawing.Point(597, 498);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(103, 50);
             this.btnRefresh.TabIndex = 4;
@@ -68,12 +69,25 @@
             this.btnRefresh.UseVisualStyleBackColor = true;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
+            // ImportBeneficiaryData
+            // 
+            this.ImportBeneficiaryData = new System.Windows.Forms.Button();
+            this.ImportBeneficiaryData.Location = new System.Drawing.Point(445, 498);
+            this.ImportBeneficiaryData.Name = "ImportBeneficiaryData";
+            this.ImportBeneficiaryData.Size = new System.Drawing.Size(103, 50);
+            this.ImportBeneficiaryData.TabIndex = 5;
+            this.ImportBeneficiaryData.Text = "Import";
+            this.ImportBeneficiaryData.UseVisualStyleBackColor = true;
+            this.ImportBeneficiaryData.Click += new System.EventHandler(this.ImportBeneficiaryData_Click);
+            this.Controls.Add(this.ImportBeneficiaryData);
+            // 
             // BeneficiaryListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1200, 594);
+            this.Controls.Add(this.ImportBeneficiaryData);
             this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.beneficiaryGridView);
             this.Controls.Add(this.pictureBox1);
@@ -92,5 +106,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.DataGridView beneficiaryGridView;
         private System.Windows.Forms.Button btnRefresh;
+        private System.Windows.Forms.Button ImportBeneficiaryData;
     }
 }

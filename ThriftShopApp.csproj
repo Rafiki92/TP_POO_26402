@@ -89,6 +89,7 @@
     <Compile Include="Controllers\DonorController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Managers\IBeneficiaries.cs" />
+    <Compile Include="Managers\CsvReaderHelper.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

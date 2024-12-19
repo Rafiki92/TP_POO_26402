@@ -114,9 +114,19 @@ namespace ThriftShopApp.Managers
                 // Display the beneficiary's details.
                 Console.WriteLine($"ID: {beneficiary.BenID}, Name: {beneficiary.Name}, Contact: {beneficiary.PhoneNumber}, Nationality: {beneficiary.Nationality}, Status: {activeStatus}");
             }
+        }
+
+            public List<Beneficiary> ImportFromCsv(string filePath)
+            {
+                var importedBeneficiaries = CsvReaderHelper.ReadBeneficiariesFromCsv(filePath);
+                foreach (var beneficiary in importedBeneficiaries)
+                {
+                    AddBeneficiary(beneficiary);
+                }
+                return importedBeneficiaries;
+            }
 
             #endregion
         }
     }
-}
 

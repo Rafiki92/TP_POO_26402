@@ -58,5 +58,34 @@ namespace ThriftShopApp.Views
         {
             LoadBeneficiaries();
         }
+
+        private void ImportBeneficiaryData_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Open file dialog to select CSV
+                using (var openFileDialog = new OpenFileDialog())
+                {
+                    openFileDialog.Filter = "CSV files (*.csv)|*.csv|All files (*.*)|*.*";
+
+                    if (openFileDialog.ShowDialog() == DialogResult.OK)
+                    {
+                        string filePath = openFileDialog.FileName;
+
+                        // Import beneficiaries via the controller
+                        controller.ImportBeneficiariesFromCsv(filePath);
+
+                        // Reload the grid view
+                        LoadBeneficiaries();
+
+                        MessageBox.Show("Beneficiaries imported successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error importing CSV: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

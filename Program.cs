@@ -11,8 +11,9 @@ using System.Windows.Forms;
 
 namespace ThriftShopApp
 {
-    internal class Program
+    internal static class Program
     {
+        [STAThread] // Ensure the application runs in STA mode
         static void Main()
         {
             Application.EnableVisualStyles();

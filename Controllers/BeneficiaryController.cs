@@ -117,6 +117,11 @@ namespace ThriftShopApp.Controllers
             var beneficiaries = beneficiariesService.GetAll();
             return beneficiaries.FindAll(b => b.IsActive());
         }
+
+        public void ImportBeneficiariesFromCsv(string filePath)
+        {
+            beneficiariesService.ImportFromCsv(filePath);
+        }
     }
 }
 
